@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: booking-cache
+
+  # Redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+
+server:
+  port: 8081
+
+logging:
+  level:
+    root: debug
+  #    me:
+  #      afibarra:
+  #        bookingcache: debug
+  #    org:
+  #      springframework:
+  #        web:
+  #          reactive:
+  #            result:
+  #              method:
+  #                annotation:
+  #                  RequestMappingHandlerMapping: debug
+  #          server:
+  #            adapter:
+  #              HttpWebHandlerAdapter: debug
+  #    io:
+  #      lettuce:
+  #        core:
+  #          RedisChannelHandler: debug
+  pattern:
+    level: "[${spring.application.name}/%X{traceId}/%X{spanId}] %-5p [%t] %C{2} - %m%n"
